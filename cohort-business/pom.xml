@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>sn.edacy</groupId>
+    <artifactId>cohort-management</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>cohort-business</artifactId>
+  <name>cohort business</name>
+  <description>gestion des traitements et de la persistence des donnees de l'application</description>
+
+  <!-- Dependencies --> 
+  <dependencies>  
+  	<dependency>
+  		<groupId>sn.edacy</groupId>
+  		<artifactId>cohort-model</artifactId>
+  		<version>${project.version}</version>
+  	</dependency>
+  	
+  	<!-- Import the EJB API, we use provided scope as the API is included in JBoss EAP -->
+    <dependency>
+        <groupId>org.jboss.spec.javax.ejb</groupId>
+        <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+        <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.jboss.spec.javax.annotation</groupId>
+        <artifactId>jboss-annotations-api_1.2_spec</artifactId>
+        <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+        <groupId>javax.enterprise</groupId>
+        <artifactId>cdi-api</artifactId>
+        <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+	  <groupId>org.apache.commons</groupId>
+	  <artifactId>commons-lang3</artifactId>
+	  <version>3.7</version>
+	</dependency>
+    
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>dom4j</artifactId>
+          <groupId>dom4j</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    
+  	<dependency>
+      <groupId>org.hibernate.javax.persistence</groupId>
+      <artifactId>hibernate-jpa-2.1-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+  
+   
+  </dependencies>
+</project>

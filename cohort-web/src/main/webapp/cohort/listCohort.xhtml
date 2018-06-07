@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+   <ui:composition template="../template.xhtml">
+   		<link  rel="stylesheet" type="text/css" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+     <ui:define name="title">Gestion des Cohorts</ui:define>
+      <div id="container">
+     <!-- redefinition du titre  -->
+     <ui:define name="pageActive"><strong>Bienvenu sur l'application de gestion d'une cohort</strong></ui:define>
+       <ui:define name="menu">
+        <li > <a  href="../index.xhtml">Accueil</a> </li>
+          <li ><a  href="create.xhtml"> Gestion des talents</a> </li>
+          <li class="active"> <a href="#">Gestion des cohorts</a> </li>
+          <li > <a href="../index.xhtml">Deconnexion</a> </li>
+          </ui:define> 
+          </div>
+          <div id="content">
+          <ui:define name="content">
+          
+            <!-- create a cohort -->
+            
+          <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="panel panel-info">
+             <div class="panel-heading">create cohort</div>
+             <div class="panel-body">
+               <h:form>
+                 <h:panelGrid columns="3">
+                 <div class="form-group">
+                   <h:outputLabel value="Entrer le nom de la cohort:  "></h:outputLabel>
+                   <h:inputText id="cohort" value="#{cohortBM.cohort.nom}"/></div>
+                   <h:commandButton action="#{cohortBM.addCohort}" value="saveCohort" class="btn btn-primary"></h:commandButton>
+                 </h:panelGrid>
+               </h:form>
+             </div>
+          </div>
+          </div>  <!-- end create a cohort -->
+          
+          
+             <!-- create lists cohorts-->
+             
+             <div class="col-md-6 col-sm-6 col-xs-12">
+               <div class="panel panel-info">
+                <div class="panel-heading">listes des cohorts</div>
+                <div class="panel-body">
+                   <table class="table table-striped">
+                     <thead>
+                       <tr><th>idCohort</th> <th>NameCohort</th></tr>
+                     </thead>
+                     <tbody>
+                       <ui:repeat var="listC" value="#{cohortBM.allCohort}">
+                       <tr>
+                          <td>
+                           <h:outputText value="#{listC.id}"></h:outputText>
+                          </td>
+                          <td>
+                           <h:outputText value="#{listC.nom}"></h:outputText>
+                          </td>
+                       </tr>
+                       </ui:repeat>
+                       <tr><td style="color: red;">le nombre de cohort est :#{cohortBM.allCohort.size()}</td>  <td>     </td>  </tr>
+                     </tbody>
+                   </table>
+                </div>
+               </div>
+             </div> <!-- end create lists cohorts --> 
+               
+          </ui:define>
+          </div>
+      </ui:composition>
+</html>

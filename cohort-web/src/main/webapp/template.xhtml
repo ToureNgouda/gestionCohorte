@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/font-awesome.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<title><ui:insert name="title"> template  </ui:insert></title>
+	<!-- fichier commun a tous les pages du projets --> 
+<!-- 	<h:outputStylesheet name="bootstrap-3.3.7-dist/css/bootstrap.min.css"/> -->
+    <!-- ajout de feuille style au cas de besoin  -->
+	<ui:insert name="head" />
+</h:head>
+
+<h:body>
+
+    
+        <div  id="container" style="margin-top: 20px;">
+            <div class="navbar navbar-inverse  " >
+             <div class="navbar-header">
+             <h1 class="navbar-brand" > <ui:insert name="pageActive"><strong>Titre du page </strong></ui:insert> </h1>
+            </div>
+             
+           
+        <!-- Top Navigation: Right Menu -->
+        <div class="form-group">
+        <ul class="nav navbar-nav navbar-right" style="padding-left:30px;" >
+        <ui:insert name="menu">
+        <li class="active"> <h:link  outcome="index">Accueil</h:link> </li>
+          <li ><h:link  outcome="/cohort/create"> Gestion des talents</h:link> </li>
+          <li > <h:link outcome="/cohort/listCohort">Gestion des cohorts</h:link> </li>
+          <li > <h:link outcome="index">Deconnexion</h:link> </li>
+          </ui:insert>
+        </ul>
+        </div> 
+        </div></div>
+        <div id="content">
+            <ui:insert name="content" />
+        </div>
+
+        
+   
+
+</h:body>
+</html>

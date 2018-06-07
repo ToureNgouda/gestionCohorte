@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+   <ui:composition template="../template.xhtml">
+   		<link  rel="stylesheet" type="text/css" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+     <ui:define name="title">Gestion des Cohorts</ui:define>
+      <div id="container">
+     <!-- redefinition du titre  -->
+     <ui:define name="pageActive"><strong>Bienvenu sur l'application de gestion d'une cohort</strong></ui:define>
+       <ui:define name="menu">
+        <li > <a  href="../index.xhtml">Accueil</a> </li>
+          <li class="active"><a  href="#"> Gestion des talents</a> </li>
+          <li > <a href="listCohort.xhtml">Gestion des cohorts</a> </li>
+          <li > <a href="../index.xhtml">Deconnexion</a> </li>
+          </ui:define> 
+     </div>
+     <div id="content">
+     <ui:define name="content">
+     
+       <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="panel panel-info">
+            <div class="panel-heading">Add a Talent in the cohort</div>
+             <div class="panel-body">
+               <h:form>
+                  <h:panelGrid columns="3">
+                   <div class="form-group" >
+                   <h:outputLabel value="Id de la cohorte: "></h:outputLabel>  
+                   <h:selectOneMenu value="#{talentBM.cohort.id}" style="size:100px;">
+                      <f:selectItems value="#{talentBM.listCohorts}" var="list" itemValue="#{list.id}" itemLabel="#{list.nom}"/>
+                    </h:selectOneMenu> </div>         
+                    <div class="form-group" style="margin-top: 10px;">
+                    <h:outputLabel value="Nom et Prenom: "></h:outputLabel>
+                    <h:inputText value="#{talentBM.talent.fullName}"></h:inputText></div>
+                     <div class="form-group" style="margin-top:15px;">
+                    <h:outputLabel value="age du Talent:"></h:outputLabel>
+                    <h:inputText value="#{talentBM.talent.age}"></h:inputText></div>
+                    <div class="form-group" >
+                    <h:commandButton action="#{talentBM.addTalent}" class="btn btn-primary" value="save"></h:commandButton>
+                   <h:commandButton value="reset" type="reset" class="btn btn-danger"  /> </div>
+                  </h:panelGrid> 
+               </h:form>
+             </div>
+            
+          </div> </div> <!-- end create the cohort -->
+          
+          <!-- recheche des talents par mots cle -->
+          <div style="margin-left: 10px;">
+            <h:form>
+                 <h:panelGrid columns="3">
+                 <div class="form-group">
+                   <h:outputLabel value="Entrer id de la cohort:  "></h:outputLabel>
+                   <h:inputText id="cohort" value="#{talentBM.searchTalent.identifTalent}"/></div>
+                   <h:commandButton action="#{talentBM.searchTalents}" value="Chercher" class="btn btn-primary">  </h:commandButton>
+                      </h:panelGrid>
+               </h:form></div>
+               <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 20px;">
+                     <div class="panel panel-info">
+                        <div class="panel-heading">liste des talents de la cohort #{talentBM.searchTalent.identifTalent} </div>
+                        <div class="panel-body">
+                           <table class="table table-striped">
+                           <thead>
+                              <tr><th>id-Talent</th> <th>Nom et prenom</th> <th>Age</th> <th>IDCohort</th></tr>
+                           </thead>
+                            <tbody>
+                               <ui:repeat var="listT" value="#{talentBM.listTalents}">
+                              <tr>
+                              <td>
+                               <h:outputText value="#{listT.id}"></h:outputText>
+                             </td>
+                            <td>
+                           <h:outputText value="#{listT.fullName}"></h:outputText>
+                          </td>
+                          <td>
+                           <h:outputText value="#{listT.age}"></h:outputText>
+                          </td>
+                           <td>
+                           <h:outputText value="#{listT.cohort.id}"></h:outputText>
+                          </td>
+                       </tr>
+                       </ui:repeat>
+                       <tr><td style="color: red;">le nombre de talent est :#{talentBM.listTalents.size()} </td>  <td>   </td>  <td>   </td>   <td>  </td></tr>
+                     </tbody>
+                   </table>
+                        </div>
+                     </div>  
+                 
+                
+          
+          </div>
+      
+     </ui:define></div>
+     
+  </ui:composition>
+  
+   
+</html>

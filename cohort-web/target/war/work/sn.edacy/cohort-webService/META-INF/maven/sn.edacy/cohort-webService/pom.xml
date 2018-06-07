@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>sn.edacy</groupId>
+    <artifactId>cohort-management</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>cohort-webService</artifactId>
+  <packaging>war</packaging>
+  <name>cohort webService </name>
+  <description>gestion des api rest et soap  de l'application </description>
+    
+  <dependencies>
+  <dependency>
+        <groupId>sn.edacy</groupId>
+        <artifactId>cohort-business</artifactId>
+        <version>${project.version}</version>
+       </dependency>   
+       <dependency> 
+        <groupId>sn.edacy</groupId>
+        <artifactId>cohort-model</artifactId>
+        <version>${project.version}</version>
+       </dependency> 
+       
+       <dependency>
+        <groupId>javax.enterprise</groupId>
+        <artifactId>cdi-api</artifactId>
+        <scope>provided</scope>
+    </dependency>
+     <dependency>
+        <groupId>org.jboss.spec.javax.ejb</groupId>
+        <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+        <scope>provided</scope>
+    </dependency>
+     <!-- https://mvnrepository.com/artifact/javax.ws.rs/javax.ws.rs-api -->
+   <dependency>
+     <groupId>javax.ws.rs</groupId>
+     <artifactId>javax.ws.rs-api</artifactId>
+     <version>2.0</version>
+   </dependency>
+   <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-jaxb-provider</artifactId>
+      <scope>provided</scope>
+    </dependency>
+   <dependency>
+    <groupId>org.jboss.resteasy</groupId>
+    <artifactId>resteasy-jaxrs </artifactId>
+    <scope> provided </scope> 
+   </dependency>
+   
+   <!-- https://mvnrepository.com/artifact/org.jboss.msc/jboss-msc -->
+<dependency>
+    <groupId>org.jboss.msc</groupId>
+    <artifactId>jboss-msc</artifactId>
+    <version>1.2.2.Final</version>
+</dependency>
+   
+   
+  </dependencies>   
+</project>

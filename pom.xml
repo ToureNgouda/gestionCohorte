@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>sn.edacy</groupId>
+  <artifactId>cohort-management</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>cohort managemnt</name>
+  <description>management the cohort</description>
+  <modules>
+  	<module>cohort-web</module>
+  	<module>cohort-model</module>
+  	<module>cohort-business</module>
+  	<module>cohort-webService</module>
+  </modules>
+  
+  <!-- si tous les plugins ne se trouvent pas dans  la meme repository-->
+  <repositories>
+    <repository>
+        <id>jboss-public-repository-group</id>
+        <name>JBoss Public Maven Repository Group</name>
+        <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+        <layout>default</layout>
+        <releases>
+          <enabled>true</enabled>
+          <updatePolicy>never</updatePolicy>
+        </releases>
+       <snapshots>
+         <enabled>true</enabled>
+         <updatePolicy>never</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>   
+  
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>org.wildfly.bom</groupId>
+  			<artifactId>wildfly-javaee7-with-tools</artifactId>
+  			<version>10.1.0.Final</version>
+  			<type>pom</type>
+  			<scope>import</scope>
+  		</dependency>
+  	</dependencies>
+  </dependencyManagement>
+</project>

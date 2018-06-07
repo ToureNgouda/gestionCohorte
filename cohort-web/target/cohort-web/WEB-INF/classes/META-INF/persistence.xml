@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+  <persistence-unit name="UP_COHORT" transaction-type="JTA">
+    
+    <jta-data-source>java:jboss/datasources/talentDS</jta-data-source>
+        
+    <jar-file>/lib/cohort-model-0.0.1-SNAPSHOT.jar</jar-file>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+       
+  	<properties>
+  		<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+  		<property name="hibernate.hbm2ddl.auto" value="update" />
+  	</properties>
+  </persistence-unit>
+</persistence>
